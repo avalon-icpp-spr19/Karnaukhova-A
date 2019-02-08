@@ -1,2 +1,2 @@
-# Gvenreed
+# Karnaukhova-A
 Карнаухова Алиса
