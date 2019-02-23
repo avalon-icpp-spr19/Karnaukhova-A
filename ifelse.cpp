@@ -16,7 +16,7 @@ int main()
 	7 10 3						Нет
 	4 5 8						Да
 	*/
-	/*int a, b, c;
+	int a, b, c;
 	cin >> a;
 	cin >> b;
 	cin >> c;
@@ -28,7 +28,7 @@ int main()
 	{
 		cout << "Нет" << endl;
 	}
-	*/
+	
 	/* Задание 2
 	Напишите код, правильно склоняющий существительное «рублей» следующее за указанным числительным.
 	Например, для 10, следует напечатать «рублей», для 1 — «рубль», для 2 — «рубля».
@@ -40,7 +40,7 @@ int main()
 	101					рубль
 	1255					рублей
 	*/
-	/*int m, w;
+	int m, w;
 	cin >> m;
 	w = (m % 20);
 
@@ -76,7 +76,7 @@ int main()
 	default:
 		break;
 	}
-	*/
+	
 
 	/* Задание 3
 	В воскресенье Вася пошел в кружок робототехники и увидел там такой код управления боевым роботом:
@@ -114,21 +114,6 @@ int main()
 	true true 60			Fire
 	*/
 
-/*bool shouldFire = true;
-bool enemyInFront;
-bool isBoss;
-int robotHealth;
-
-cin >> enemyInFront;
-cin >> isBoss;
-cin >> robotHealth;
-
-if ((enemyInFront && (!isBoss)) || ((enemyInFront && (((isBoss) && (robotHealth > 50))))))
-{	
-	cout << "Fire" << endl;
-}
-*/
-
 	/* Задание 4
 	Вы с Васей и Петей решили выбрать самые лучшие фотографии котиков в интернете.
 	Для этого каждую фотографию каждый из вас оценил по стобалльной шкале.
@@ -144,23 +129,7 @@ if ((enemyInFront && (!isBoss)) || ((enemyInFront && (((isBoss) && (robotHealth 
 	1 5 5				5
 	4 5 6				4
 	*/
-/*char f, s, t;
-cin >> f;
-cin >> s;
-cin >> t;
-if ((!((s < f) && (f < t))) || (!((s > f) && (f > t))))
-{
-	cout << f << endl;
-}
-if ((!((s < t) && (f < s))) || (!((s < f) && (s > t))))
-{
-	cout << s << endl;
-}
-if ((!((f < t) && (t < s))) || (!((f > t) && (t > s))))
-{
-	cout << t << endl;
-}
-*/
+
 	/* Задание 5
 	Написать логику, которая проверяет возможность существования даты по введенным пользователем данных.
 	Пользователь вводит данные в формате день, месяц, год.
@@ -177,55 +146,7 @@ if ((!((f < t) && (t < s))) || (!((f > t) && (t > s))))
 	29 2 1900					false
 	29 2 2000					true
 	*/
-int day, month, year;
-cin >> day;
-cin >> month;
-cin >> year;
-switch (month)
-{
-case 1:
-case 3:
-case 5:
-case 7:
-case 8:
-case 10:
-case 12:
-	if (day < 32)
-	{
-		cout << "true" << endl;
-	}
-	else
-	{
-		cout << "false" << endl;
-	}
-	break;
-case 4:
-case 6:
-case 9:
-case 11:
-	if (day < 31)
-	{
-		cout << "true" << endl;
-	}
-	else
-	{
-		cout << "false" << endl;
-	}
-	break;
-case 2:
-	if ((!((year % 400 == 0) && (day < 30))) || (day < 29))
-	{
-		cout << "true" << endl;
-	}
-	else
-	{
-		cout << "false" << endl;
-	}
-	break;
-
-default:
-	break;
-}
+	
 	/* Задание 6
 	Шахматный ферзь ходит по диагонали, горизонтали или вертикали.
 	Даны две различные клетки шахматной доски, Написать логику, которая определяет
