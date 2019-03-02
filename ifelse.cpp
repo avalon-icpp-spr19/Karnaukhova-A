@@ -113,7 +113,27 @@ int main()
 	true true 10
 	true true 60			Fire
 	*/
-
+	
+	bool enemyInFront;
+	bool isBoss;
+	int robotHealth;
+	cin >> enemyInFront;
+	cin >> isBoss;
+	cin >> robotHealth;
+	bool shouldFire;
+	if (((enemyInFront) || ((!((enemyInFront) && (((isBoss) || (robotHealth > 50))))))))
+	{
+		shouldFire = true;
+	}
+	else
+	{
+		shouldFire = false;
+	}
+	if (shouldFire)
+	{
+		cout << "Fire" << endl;
+	}
+	
 	/* Задание 4
 	Вы с Васей и Петей решили выбрать самые лучшие фотографии котиков в интернете.
 	Для этого каждую фотографию каждый из вас оценил по стобалльной шкале.
