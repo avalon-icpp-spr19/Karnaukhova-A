@@ -149,7 +149,57 @@ int main()
 	1 5 5				5
 	4 5 6				4
 	*/
+#include <iostream>
 
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "");
+
+	int n1, n2, n3;
+	cin >> n1;
+	cin >> n2;
+	cin >> n3;
+	if ((n1 > n2) && (n1 > n3))
+	{
+		if (n2 > n3)
+		{
+			cout << n2 << endl;
+		}
+		else
+		{
+			cout << n3 << endl;
+		}
+	}
+	if ((n3 > n2) && (n3 > n1))
+	{
+		if (n2 > n1)
+		{
+			cout << n2 << endl;
+		}
+		else
+		{
+			cout << n1 << endl;
+		}
+	}
+	if ((n2 > n3) && (n2 > n1))
+	{
+		if (n1 > n3)
+		{
+			cout << n1 << endl;
+		}
+		else
+		{
+			cout << n3 << endl;
+		}
+	}
+	if ((n1 == n2)&&(n2 == n3))
+	{
+		cout << n1 << endl;
+	}
+
+}
 	/* Задание 5
 	Написать логику, которая проверяет возможность существования даты по введенным пользователем данных.
 	Пользователь вводит данные в формате день, месяц, год.
