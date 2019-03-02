@@ -149,14 +149,6 @@ int main()
 	1 5 5				5
 	4 5 6				4
 	*/
-#include <iostream>
-
-using namespace std;
-
-int main()
-{
-	setlocale(LC_ALL, "");
-
 	int n1, n2, n3;
 	cin >> n1;
 	cin >> n2;
@@ -216,13 +208,6 @@ int main()
 	29 2 1900					false
 	29 2 2000					true
 	*/
-	#include <iostream>
-
-using namespace std;
-
-int main()
-{
-	setlocale(LC_ALL, "");
 
 	int day, month, year;
 	bool result = false;
