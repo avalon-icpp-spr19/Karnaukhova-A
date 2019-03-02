@@ -216,7 +216,50 @@ int main()
 	29 2 1900					false
 	29 2 2000					true
 	*/
-	
+	#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "");
+
+	int day, month, year;
+	bool result = false;
+	cin >> day;
+	cin >> month;
+	cin >> year;
+	switch (month)
+	{
+	case 1:
+	case 3:
+	case 5:
+	case 7:
+	case 8:
+	case 10:
+	case 12:
+		if (day == 31);
+		break;
+	case 4:
+	case 6:
+	case 9:
+	case 11:
+		if (day == 30);
+		break;
+	case 2:
+		if (((year % 400 == 0) || (year % 100 != 0) && (year % 4 == 0) == true && (day < 30)) || (day < 29));
+		break;
+	}
+
+	if (result)
+	{
+		cout << "true" << endl;
+	}
+	else
+	{
+		cout << "false" << endl;
+	}
+}
 	/* Задание 6
 	Шахматный ферзь ходит по диагонали, горизонтали или вертикали.
 	Даны две различные клетки шахматной доски, Написать логику, которая определяет
