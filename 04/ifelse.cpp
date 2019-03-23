@@ -179,7 +179,7 @@ int main()
 	*/
 
 	int day, month, year;
-	bool result = false;
+	bool res = false;
 	cin >> day;
 	cin >> month;
 	cin >> year;
@@ -192,20 +192,29 @@ int main()
 	case 8:
 	case 10:
 	case 12:
-		if (day == 31);
+		if (day <= 31)
+		{
+			res = true;
+		};
 		break;
 	case 4:
 	case 6:
 	case 9:
 	case 11:
-		if (day == 30);
+		if (day <= 30)
+		{
+			res = true;
+		};
 		break;
 	case 2:
-		if (((year % 400 == 0) || (year % 100 != 0) && (year % 4 == 0) == true && (day < 30)) || (day < 29));
+		if (((year % 400 == 0) || (year % 100 != 0) && (year % 4 == 0) && day <= 29) || (!((year % 400 == 0) || (year % 100 != 0) && (year % 4 == 0)) && day <= 28))
+		{
+			res = true;
+		}
 		break;
 	}
 
-	if (result)
+	if (res)
 	{
 		cout << "true" << endl;
 	}
@@ -213,7 +222,6 @@ int main()
 	{
 		cout << "false" << endl;
 	}
-}
 	/* Задание 6
 	Шахматный ферзь ходит по диагонали, горизонтали или вертикали.
 	Даны две различные клетки шахматной доски, Написать логику, которая определяет
