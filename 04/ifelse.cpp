@@ -117,19 +117,11 @@ int main()
 	bool enemyInFront;
 	bool isBoss;
 	int robotHealth;
+	bool shouldFire = true;
 	cin >> enemyInFront;
 	cin >> isBoss;
 	cin >> robotHealth;
-	bool shouldFire;
-	if (((enemyInFront) || ((!((enemyInFront) && (((isBoss) || (robotHealth > 50))))))))
-	{
-		shouldFire = true;
-	}
-	else
-	{
-		shouldFire = false;
-	}
-	if (shouldFire)
+	if (enemyInFront == true && (!(isBoss == false || robotHealth > 50)))
 	{
 		cout << "Fire" << endl;
 	}
