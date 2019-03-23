@@ -153,45 +153,14 @@ int main()
 	cin >> n1;
 	cin >> n2;
 	cin >> n3;
-	if ((n1 > n2) && (n1 > n3))
-	{
-		if (n2 > n3)
-		{
-			cout << n2 << endl;
-		}
-		else
-		{
-			cout << n3 << endl;
-		}
-	}
-	if ((n3 > n2) && (n3 > n1))
-	{
-		if (n2 > n1)
-		{
-			cout << n2 << endl;
-		}
-		else
-		{
-			cout << n1 << endl;
-		}
-	}
-	if ((n2 > n3) && (n2 > n1))
-	{
-		if (n1 > n3)
-		{
-			cout << n1 << endl;
-		}
-		else
-		{
-			cout << n3 << endl;
-		}
-	}
-	if ((n1 == n2)&&(n2 == n3))
-	{
-		cout << n1 << endl;
-	}
+	int min, max;
+	max = (n1 > n2) ? n1 : n2;
+	max = (max > n3) ? max : n3;
+	min = (n1 > n2) ? n2 : n1;
+	min = (min > n3) ? n3 : min;
 
-}
+	cout << (n1 + n2 + n3) - (max + min) << endl;
+	
 	/* Задание 5
 	Написать логику, которая проверяет возможность существования даты по введенным пользователем данных.
 	Пользователь вводит данные в формате день, месяц, год.
