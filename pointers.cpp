@@ -126,6 +126,18 @@ int main()
 	//d				4
 	//z				26
 	//!				-1
+	char four;
+	int ans = -1;
+	cin >> four;
+	for (int i = 0; i < 26; ++i)
+	{
+		if (data2[i] == four)
+		{
+			ans = i + 1;
+			break;
+		}
+	}
+	cout << ans << endl;
 	cout << "" << endl;
 	cout << "#5" << endl;
 	//Задание №5
