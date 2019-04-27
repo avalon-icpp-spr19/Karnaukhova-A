@@ -18,7 +18,31 @@ struct Circle
 	Point cr;
 };
 
-int main ()
+enum Color
+{
+	red = 1,
+	orange,
+	yellow,
+	green,
+	lightblue,
+	blue,
+	purple
+};
+
+struct Triangle
+{
+	Color color;
+	int side[3];
+};
+
+struct date
+{
+	int day;
+	int month;
+	int year;
+};
+
+int main()
 {
 	setlocale(LC_ALL, "");
 	cout << "#1" << endl;
@@ -36,7 +60,7 @@ int main ()
 	cin >> r;
 	cin >> p.x;
 	cin >> p.y;
-	if (p.x*p.x + p.y*p.y <= r*r)
+	if (p.x*p.x + p.y*p.y <= r * r)
 	{
 		cout << "Точка принадлежит кругу";
 	}
@@ -44,6 +68,7 @@ int main ()
 	{
 		cout << "Точка не принадлежит кругу";
 	}
+	cout << "" << endl;
 	//Написать программу, которая по двум заданным точкам - концам отрезка находит точку середины отрезка.
 	//Координаты точек пользователь вводит с клавиатуры.
 	//Для хранения координат точек использовать структуру Point.
@@ -65,13 +90,14 @@ int main ()
 	}
 	if (p.y <= c.y)
 	{
-		b.y = ((c.y - p.y) / 2)+ p.y;
+		b.y = ((c.y - p.y) / 2) + p.y;
 	}
 	else
 	{
 		b.y = ((p.y - c.y) / 2) + c.y;
 	}
 	cout << b.x << " " << b.y << endl;
+	
 	cout << "#2" << endl;
 	//Задание №2
 	//Создать структуру Circle, содержащую одно поле типа int - радиус и второе поле типа Point - центр окружности.
@@ -104,6 +130,7 @@ int main ()
 	{
 		cout << "Окружности не пересекаются" << endl;
 	}
+	
 	cout << "#3" << endl;
 	//Задание №3
 	//Создать перечисление (enum) Color, для хранения 7 цветов радуги.
@@ -114,10 +141,43 @@ int main ()
 	//Значение поля Color вывести в текстовом виде. (использовать конструкцию switch).
 	//Рассчитать и вывести на экран периметр вышеобъявленного треугольника.
 
+	Triangle n = { {Color::red}, {1,2,8} };
+	switch (n.color)
+	{
+	case 1:
+		cout << "красный,";
+		break;
+	case 2:
+		cout << "оранжевый,";
+		break;
+	case 3:
+		cout << "желтый,";
+		break;
+	case 4:
+		cout << "зеленый,";
+		break;
+	case 5:
+		cout << "голубой,";
+		break;
+	case 6:
+		cout << "синий,";
+		break;
+	case 7:
+		cout << "фиолетовый,";
+		break;
+
+	default:
+		break;
+	}
+	cout << " " << "Стороны: " << n.side[0] <<"; " << n.side[1] << "; " << n.side[2] << endl;
+	cout << "Периметр = " << n.side[0] + n.side[1] + n.side[2] << endl;
+	
+	cout << "#4" << endl;
 	//Задание №4
 	//Создать массив из 20 элеметнов типа Point.
 	Point parr[20];
 	//Проинициализировать его точками со случайными значениями координат в пределах от 0 до 100.
+
 	for (int i; i < 20; ++i)
 	{
 		parr[i].x = GetRandomValue(0, 100);
@@ -137,8 +197,8 @@ int main ()
 	}
 	cout << minx << "; " << miny;
 	//- двух точек, расстояние между которыми минимально.
-	
 
+	cout << "#5" << endl;
 	//Задание №5
 	//Создать массив из 100 элементов типа Triangle.
 	//Проинициализировать его случайными значениями (длина стороны от 1 до 10).
@@ -149,6 +209,31 @@ int main ()
 	//Если подходящих треугольников нет, вывести соответствующее сообщение.
 	//- количество треугольников каждого цвета
 
+	int Per;
+	cin >> Per;
+	Triangle arr[100];
+	for (int i = 0; i < 100; ++i)
+	{
+		arr[i].side[0] = GetRandomValue(1, 10);
+		arr[i].side[1] = GetRandomValue(1, 10);
+		arr[i].side[2] = GetRandomValue(1, 10);
+		if ((arr[i].side[0] > arr[i].side[1] + arr[i].side[2]) || (arr[i].side[1] > arr[i].side[0] + arr[i].side[2]) || (arr[i].side[2] > arr[i].side[0] + arr[i].side[1]))
+		{
+			arr[i].side[0] = 0;
+			arr[i].side[1] = 0;
+			arr[i].side[2] = 0;
+		}
+		if ((arr[i].side[0] + arr[i].side[1] + arr[i].side[2]) > Per)
+		{
+			cout << arr[i].side[0] << "; " << arr[i].side[1] << "; " << arr[i].side[2] << endl;
+		}
+		else
+		{
+			cout << "Таких треугольников нет" << endl;
+		}
+	}
+	
+	cout << "#6" << endl;
 	//Задание №6
 	//Написать программу, которая проверяет правильность заданных значений даты.
 	//Дату хранить с использованием структуры.
@@ -163,5 +248,58 @@ int main ()
 	//29 2 2004					Дата корректна
 	//29 2 1900					Дата некоррентна
 	//29 2 2000					Дата корректна
-	
+
+	bool dq = false;
+
+	date dd;
+	cin >> dd.day >> dd.month >> dd.year;
+	switch (dd.month)
+	{
+	case 1:
+	case 3:
+	case 5:
+	case 7:
+	case 8:
+	case 10:
+	case 12:
+		if (dd.day <= 31)
+		{
+			dq = true;
+
+		}
+		break;
+
+	case 2:
+		if ((dd.year % 4 == 0 && (dd.year % 100 != 0) || (dd.year % 400 == 0)) && (dd.day <= 29))
+		{
+			dq = true;
+		}
+		else if (((dd.year % 4 != 0 && (dd.year % 100 == 0)) || (dd.year % 400 != 0)) && (dd.day <= 28))
+		{
+			dq = true;
+		}
+		break;
+
+	case 4:
+	case 6:
+	case 9:
+	case 11:
+		if (dd.day <= 30)
+		{
+			dq = true;
+		}
+
+	default:
+		break;
+	}
+
+	if (dq)
+	{
+		cout << "Дата корректна" << endl;
+	}
+	else
+	{
+		cout << "Дата некоррентна" << endl;
+	}
+
 }
