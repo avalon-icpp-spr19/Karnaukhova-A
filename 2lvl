@@ -1,0 +1,113 @@
+#include <iostream>
+#include <limits>
+#include "Extention.h"
+
+using namespace std;
+using namespace ext;
+
+struct Data
+{
+	int day;
+	int month;
+	int year;
+};
+
+struct Birthday
+{
+	int days;
+	int months;
+};
+
+Birthday makeBirthday( )
+{
+	Data sim;
+	Birthday date;
+	bool check = false;
+
+	sim.month = GetRandomValue(1, 12);
+	sim.day = GetRandomValue(1, 31);
+	sim.year = GetRandomValue(1920, 2019);
+
+	switch (sim.month)
+	{
+	case 1:
+	case 3:
+	case 5:
+	case 7:
+	case 8:
+	case 10:
+	case 12:
+		while (sim.day > 31)
+		{
+			sim.day = GetRandomValue(1, 31);
+		}
+		break;
+	case 4:
+	case 6:
+	case 9:
+	case 11:
+		while (sim.day > 30)
+		{
+			sim.day = GetRandomValue(1, 30);
+		}
+		break;
+	case 2:
+		while (!check)
+		{
+			if (((sim.year % 400 == 0) || (sim.year % 100 != 0) && (sim.year % 4 == 0) == true && (sim.day < 30)) || (sim.day < 29));
+			{
+				check = true;
+			}
+			sim.day = GetRandomValue(1, 29);
+		}
+		break;
+	}
+	
+	date.days = sim.day;
+	date.months = sim.month;
+	return date;
+}
+
+void simul (int n)
+{
+	int res = 0;
+
+	for (int y = 1; y <= n; ++y)
+	{		
+		Birthday data[23];
+
+		for (int i = 0; i < 23; ++i)
+		{
+			data[i] = makeBirthday();
+		}
+
+		for (int w = 0; w < 23; ++w)
+		{
+			for (int j = 0; j < 23; ++j)
+			{
+				for (int i = 0; i < 23; ++i)
+				{
+					if ((data[i].days == data[j].days) && (data[i].days == data [w].days) && (data[i].months == data[j].months) && (data[i].months == data[w].months) && (w != j) && (w!=i) && (j!= i))
+					{
+						res += 1;
+						j = 24;
+						w = 24;
+						i = 24;
+						break;
+					}
+				}
+			}
+		}
+	}
+	cout << "Хотя бы три день рождения совпали в " << res << " симуляциях" << endl;
+	cout << "Процент успешных " << (res * 100.F /n) << "%" << endl;
+ }
+
+int main()
+{
+	setlocale(LC_ALL, "");
+	int n;
+	cout << "Введите количество симуляций: " << endl;
+	cin >> n;
+	simul(n);
+}
